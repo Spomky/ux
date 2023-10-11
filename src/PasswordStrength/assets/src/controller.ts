@@ -79,8 +79,7 @@ export default class extends Controller {
 
             const chars = Object.keys(charCount).length;
             const pool = lower + upper + digit + symbol + control + other;
-            const entropy =
-                chars * Math.log2(pool) + (length - chars) * Math.log2(chars);
+            const entropy = chars * Math.log2(pool) + (length - chars) * Math.log2(chars);
 
             switch (true) {
                 case entropy >= 120:
