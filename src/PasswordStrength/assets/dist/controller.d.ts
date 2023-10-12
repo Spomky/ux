@@ -1,10 +1,6 @@
 import { Controller } from '@hotwired/stimulus';
 export default class extends Controller {
     static values: {
-        minScore: {
-            type: NumberConstructor;
-            default: number;
-        };
         veryWeakMessage: {
             type: StringConstructor;
             default: string;
@@ -34,6 +30,7 @@ export default class extends Controller {
     readonly veryStrongMessageValue: string;
     readonly scoreTarget: HTMLElement | null;
     readonly messageTarget: HTMLElement | null;
+    readonly meterTarget: HTMLElement | null;
     connect(): void;
     private dispatchEvent;
     estimatePasswordStrength(event: InputEvent): void;

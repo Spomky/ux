@@ -87,6 +87,10 @@ class default_1 extends Controller {
         if (this.hasScoreTarget) {
             this.scoreTargets.forEach((element) => {
                 element.innerHTML = result.score.toString();
+            });
+        }
+        if (this.hasMeterTarget) {
+            this.meterTargets.forEach((element) => {
                 element.setAttribute('data-password-strength-estimate', result.score.toString());
             });
         }
@@ -102,13 +106,12 @@ class default_1 extends Controller {
     }
 }
 default_1.values = {
-    minScore: { type: Number, default: 2 },
     veryWeakMessage: { type: String, default: 'The password strength is too weak!' },
     weakMessage: { type: String, default: 'The password strength is weak!' },
     mediumMessage: { type: String, default: 'The password strength is medium!' },
     strongMessage: { type: String, default: 'The password strength is strong!' },
     veryStrongMessage: { type: String, default: 'The password strength is very strong!' },
 };
-default_1.targets = ['score', 'message'];
+default_1.targets = ['score', 'message', 'meter'];
 
 export { default_1 as default };

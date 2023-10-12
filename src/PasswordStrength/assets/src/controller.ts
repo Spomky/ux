@@ -10,14 +10,13 @@ enum PasswordStrength {
 
 export default class extends Controller {
     static values = {
-        minScore: { type: Number, default: 2 },
         veryWeakMessage: { type: String, default: 'The password strength is too weak!' },
         weakMessage: { type: String, default: 'The password strength is weak!' },
         mediumMessage: { type: String, default: 'The password strength is medium!' },
         strongMessage: { type: String, default: 'The password strength is strong!' },
         veryStrongMessage: { type: String, default: 'The password strength is very strong!' },
     };
-    static targets: string[] = ['score', 'message'];
+    static targets: string[] = ['score', 'message', 'meter'];
 
     declare readonly veryWeakMessageValue: string;
     declare readonly weakMessageValue: string;
@@ -26,6 +25,7 @@ export default class extends Controller {
     declare readonly veryStrongMessageValue: string;
     declare readonly scoreTarget: HTMLElement | null;
     declare readonly messageTarget: HTMLElement | null;
+    declare readonly meterTarget: HTMLElement | null;
 
     connect() {
         this.dispatchEvent('connect', {});
@@ -112,6 +112,10 @@ export default class extends Controller {
         if (this.hasScoreTarget) {
             this.scoreTargets.forEach((element: HTMLElement) => {
                 element.innerHTML = result.score.toString();
+            });
+        }
+        if (this.hasMeterTarget) {
+            this.meterTargets.forEach((element: HTMLElement) => {
                 element.setAttribute('data-password-strength-estimate', result.score.toString());
             });
         }
