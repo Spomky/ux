@@ -9,17 +9,10 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Florent Morselli",
-            "email": "contact@spomky-labs.com"
-        },
-        {
             "name": "Symfony Community",
             "homepage": "https://symfony.com/contributors"
         }
     ],
-    "conflict": {
-        "symfony/flex": "<1.13"
-    },
     "extra": {
         "thanks": {
             "name": "symfony/ux",
