@@ -1,5 +1,5 @@
 # CHANGELOG
 
-## 2.10.0
+## 2.13.0
 
--   Add `PasswordStrength`
+-   Component added!
