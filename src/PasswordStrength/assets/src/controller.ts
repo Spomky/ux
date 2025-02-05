@@ -54,26 +54,25 @@ export default class extends Controller {
 
             for (const charCodeStr in charCount) {
                 const charCode = parseInt(charCodeStr);
-                const count = charCount[charCode];
 
                 switch (true) {
                     case charCode < 32 || charCode === 127:
-                        control += count * 33;
+                        control = 33;
                         break;
                     case charCode >= 48 && charCode <= 57:
-                        digit += count * 10;
+                        digit = 10;
                         break;
                     case charCode >= 65 && charCode <= 90:
-                        upper += count * 26;
+                        upper = 26;
                         break;
                     case charCode >= 97 && charCode <= 122:
-                        lower += count * 26;
+                        lower = 26;
                         break;
                     case charCode >= 128:
-                        other += count * 128;
+                        other = 128;
                         break;
                     default:
-                        symbol += count * 33;
+                        symbol = 33;
                 }
             }
 
